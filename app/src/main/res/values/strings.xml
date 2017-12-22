@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MP</string>
+    <string name="MPServiceName">MPS</string>
+    <string name="playLabel">Play</string>
+    <string name="pauseLabel">Pause</string>
+    <string name="stopLabel">Stop</string>
+    <string name="none"></string>
+</resources>
