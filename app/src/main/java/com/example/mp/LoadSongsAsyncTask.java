@@ -1,9 +1,6 @@
 package com.example.mp;
 
-import android.content.pm.PackageManager;
 import android.os.AsyncTask;
-import android.Manifest;
-import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 
@@ -11,7 +8,7 @@ import java.io.File;
 import java.util.ArrayList;
 
 
-public class LoadSongsAsyncTask extends AsyncTask<File, String, ArrayList<File>> {
+public class LoadSongsAsyncTask extends AsyncTask<File, Integer, ArrayList<File>> {
 
     private MainActivity mainActivity;
 
@@ -32,8 +29,7 @@ public class LoadSongsAsyncTask extends AsyncTask<File, String, ArrayList<File>>
 
     @Override
     protected ArrayList<File> doInBackground(File ...args) {
-
-        for (File arg : args)
+        for(File arg : args)
             songFileList.addAll(Load.FileListByExtension(arg, mainActivity.songFileExtensions));
 
         return songFileList;
@@ -41,8 +37,8 @@ public class LoadSongsAsyncTask extends AsyncTask<File, String, ArrayList<File>>
 
     /*
     @Override
-    protected void onProgressUpdate(String ...args) {
-
+    protected void onProgressUpdate(Integer ...integer) {
+        super.onProgressUpdate(integer);
     }
     */
 

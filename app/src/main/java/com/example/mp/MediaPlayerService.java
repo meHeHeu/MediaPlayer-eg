@@ -21,10 +21,12 @@ public class MediaPlayerService extends Service {
 
     private MediaPlayer mediaPlayer = new MediaPlayer();
 
+
     @Override
     public IBinder onBind(Intent intent) {
         return MP_Binder;
     }
+
 
     public void set(File song) {
         mediaPlayer.reset();
@@ -34,6 +36,10 @@ public class MediaPlayerService extends Service {
         } catch(IOException ie) {
             ie.printStackTrace();
         }
+    }
+
+    public void set(int time) {
+        mediaPlayer.seekTo(time);
     }
 
     public void reset() {
@@ -49,5 +55,13 @@ public class MediaPlayerService extends Service {
 
     public boolean isPlaying() {
         return mediaPlayer.isPlaying();
+    }
+
+    public int getCurrentPosition() {
+        return mediaPlayer.getCurrentPosition();
+    }
+
+    public int getDuration() {
+        return mediaPlayer.getDuration();
     }
 }
